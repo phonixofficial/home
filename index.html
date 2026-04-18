@@ -16,8 +16,32 @@
     }
 
     body {
-      background: #0b0b0f;
+      background: #000;
       color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* VIDEO BACKGROUND */
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      filter: brightness(0.35) contrast(1.1);
+    }
+
+    /* DARK OVERLAY */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at top, rgba(20,20,25,0.6), rgba(0,0,0,0.95));
+      z-index: -1;
     }
 
     header {
@@ -26,28 +50,48 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: radial-gradient(circle at top, #1a1a1f, #000);
       text-align: center;
     }
 
-    header h1 {
-      font-size: 5rem;
-      letter-spacing: 10px;
+    /* LOGO ANIMATO DA CONCERTO */
+    .logo {
+      max-width: 360px;
+      width: 80%;
+      opacity: 0;
+      transform: scale(0.5) translateY(-60px);
+      animation: logoIn 1.8s ease-out forwards;
+      filter: drop-shadow(0 0 25px rgba(255, 80, 0, 0.5));
+    }
+
+    @keyframes logoIn {
+      0% {opacity:0; transform: scale(0.5) translateY(-60px);}
+      60% {opacity:1; transform: scale(1.08) translateY(0);}
+      100% {opacity:1; transform: scale(1);}
     }
 
     header p {
-      margin-top: 15px;
-      color: #aaa;
-      letter-spacing: 3px;
+      margin-top: 20px;
+      color: #ccc;
+      letter-spacing: 4px;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 1s;
+    }
+
+    @keyframes fadeIn {
+      to {opacity: 1;}
     }
 
     .btn {
       margin-top: 30px;
-      padding: 12px 25px;
+      padding: 12px 28px;
       border: 1px solid #ff4d00;
       color: #ff4d00;
       text-decoration: none;
       transition: 0.3s;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 1.4s;
     }
 
     .btn:hover {
@@ -56,7 +100,7 @@
     }
 
     section {
-      padding: 80px 20px;
+      padding: 90px 20px;
       max-width: 900px;
       margin: auto;
       text-align: center;
@@ -70,7 +114,7 @@
 
     p {
       color: #bbb;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     .links a {
@@ -79,6 +123,11 @@
       color: #ff4d00;
       text-decoration: none;
       font-size: 18px;
+      transition: 0.3s;
+    }
+
+    .links a:hover {
+      color: #fff;
     }
 
     footer {
@@ -87,13 +136,39 @@
       color: #555;
       border-top: 1px solid #222;
     }
+
+    /* LIGHT PULSE EFFECT */
+    .pulse {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,77,0,0.2), transparent 70%);
+      border-radius: 50%;
+      animation: pulse 4s infinite ease-in-out;
+      z-index: -1;
+    }
+
+    @keyframes pulse {
+      0% {transform: scale(0.8); opacity: 0.3;}
+      50% {transform: scale(1.2); opacity: 0.6;}
+      100% {transform: scale(0.8); opacity: 0.3;}
+    }
   </style>
 </head>
 
 <body>
 
+<!-- VIDEO BACKGROUND (puoi sostituire con tuo video) -->
+<video class="video-bg" autoplay muted loop>
+  <source src="https://cdn.coverr.co/videos/coverr-concert-crowd-8574/1080p.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+<div class="pulse" style="top:20%; left:10%;"></div>
+<div class="pulse" style="bottom:10%; right:10%;"></div>
+
 <header>
-  <img src="442891ec-2edd-4a09-a3bc-536024805739.png" alt="Phonix Logo" style="max-width:320px; width:80%; margin-bottom:20px;">
+  <img src="442891ec-2edd-4a09-a3bc-536024805739.png" alt="Phonix Logo" class="logo">
   <p>FUNK • R&B • LIVE ENERGY</p>
   <a class="btn" href="#music">Enter</a>
 </header>
@@ -101,14 +176,14 @@
 <section id="music">
   <h2>The Sound</h2>
   <p>
-    Phonix è una band che unisce groove funk, R&B moderno e energia live.
-    Un suono internazionale pensato per il palco.
+    Phonix è una band che fonde groove funk, R&B moderno e energia live.
+    Un progetto con identità internazionale e spirito da palco.
   </p>
 </section>
 
 <section>
   <h2>Live</h2>
-  <p>Prossime date in arrivo. Stay tuned.</p>
+  <p>Tour dates coming soon. Stay tuned.</p>
 </section>
 
 <section>
