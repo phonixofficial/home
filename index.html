@@ -55,19 +55,30 @@
 
     /* LOGO ANIMATO DA CONCERTO */
     .logo {
-      max-width: 360px;
-      width: 80%;
-      opacity: 0;
-      transform: scale(0.5) translateY(-60px);
-      animation: logoIn 1.8s ease-out forwards;
-      filter: drop-shadow(0 0 25px rgba(255, 80, 0, 0.5));
-    }
+  max-width: 700px;
+  width: 90%;
+  opacity: 0;
+  transform: scale(0.6) translateY(40px);
+  animation: logoIn 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 
     @keyframes logoIn {
-      0% {opacity:0; transform: scale(0.5) translateY(-60px);}
-      60% {opacity:1; transform: scale(1.08) translateY(0);}
-      100% {opacity:1; transform: scale(1);}
-    }
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(40px);
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05) translateY(0);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
 
     header p {
       margin-top: 20px;
@@ -189,16 +200,27 @@ Disponibili per feste di piazza, matrimoni, eventi pubblici e privati, club, fes
 
 <section>
   <h2>LIVE</h2>
-  <p>Tour dates: sabato 23 maggio 2026, ore 21:30 - Bagni Liggia, Genova, Via Gerolamo Gaslini 10.</p>
+  <div style="margin-top:20px; padding:20px; border:1px solid #222; border-radius:12px; background:rgba(255,255,255,0.03);">
+    <p style="margin-bottom:10px;">
+      📍 Bagni Liggia – Genova  
+      🗓 Sabato 23 Maggio 2026  
+      🕘 21:30
+    </p>
+  </div>
 </section>
 
 <section>
   <h2>CONTATTI</h2>
+
   <div class="links">
     <a href="https://www.instagram.com/p._.h._.o._.n._.i._.x?igsh=b3hmN2plc3p6dXpl" target="_blank">Instagram</a>
     <a href="https://wa.me/393921911626" target="_blank">WhatsApp</a>
     <a href="mailto:301243kg@gmail.com">Email</a>
   </div>
+
+  <p style="margin-top:20px; color:#666; font-size:14px;">
+    Booking disponibile per feste di piazza, eventi pubblici e privati
+  </p>
 </section>
 
 <footer>
